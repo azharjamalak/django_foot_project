@@ -1,0 +1,200 @@
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!--<head>-->
+    <meta charset="utf-8">
+    <title>Step Store Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'hm/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="{% static 'hm/https://fonts.gstatic.com' %}">
+    <link href="{% static 'hm/https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap' %}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'hm/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'hm/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'hm/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'hm/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'hm/css/style.css' %}" rel="stylesheet">
+    <style media="screen">
+    * {
+box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+padding: 10px;
+font-size: 17px;
+border: 1px solid grey;
+float: left;
+width: 80%;
+background:#fc9e3a;
+}
+
+/* Style the submit button */
+form.example button {
+float: left;
+width: 20%;
+padding: 10px;
+background:#070136 ;
+color: white;
+font-size: 17px;
+border: 1px solid grey;
+border-left: none; /* Prevent double borders */
+cursor: pointer;
+}
+
+form.example button:hover {
+background: #020136;
+}
+
+/* Clear floats */
+form.example::after {
+content: "";
+clear: both;
+display: table;
+}
+.dropbtn {
+  background-color:#ffba59;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #010447;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
+        <div class="row">
+            <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+9100000000</a>
+                    <span class="text-body">|</span>
+                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>azharjamal70@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-body px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-body pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="position-relative px-lg-5" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
+                <a href="/" class="navbar-brand">
+                    <h1 class="text-uppercase text-primary mb-1">STEP STORE</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'cartDetails' %}" class="nav-item nav-link"><i class="fa fa-shopping-cart"></i></a>
+                        {% if user.is_authenticated %}
+                        <li>HELLO {{user.username}}</li>
+                        <a href="accounts/logout" class="nav-item nav-link active">Logout</a>
+                        {% else %}
+                        <a href="accounts/login" class="nav-item nav-link">Login</a>
+                        <a href="accounts/registration" class="nav-item nav-link active">Register</a>
+                        {% endif %}
+
+
+
+
+                                <div class="dropdown">
+                                  <button class="dropbtn">FILTER</button>
+                                  <div class="dropdown-content">
+                                  <a href="/">ALL</a>
+                                      {% for i in ct %}
+                                  <a href={{i.get_url}}>{{i.name}}</a>
+                                      {% endfor %}
+                                  </div>
+                                </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="{% url 'search' %}" method="get">
+  <input type="text" placeholder="Search Products..." name="q">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+{% block content %}
+{% endblock %}
+</body>
+</html>

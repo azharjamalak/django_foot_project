@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Step Store Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'hm/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="{% static 'hm/https://fonts.gstatic.com' %}">
+    <link href="{% static 'hm/https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap' %}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'hm/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'hm/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'hm/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'hm/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'hm/css/style.css' %}" rel="stylesheet">
+<!--    <style media="screen">-->
+</head>
+
+
+
+    <div class="container-fluid py-5">
+
+
+
+            <div class="row">
+                {% for i in pr %}
+
+
+                <div class="col-lg-4 col-md-4 mb-2">
+
+                    <a class="rent-item mb-4">
+
+                        <a  href="{{i.get_url}}"> <img class="img-fluid mb-4"   src="{{i.img.url}}" alt=""></a><br>
+                        <h4 class="text-uppercase mb-4" >{{i.name}}</h4><br>
+                        <div class="d-flex justify-content-center mb-4">
+                            <p class="img-fluid mb-4">{{i.desc|truncatewords:10}}</p><br>
+                        </div>
+<!--                        <a class="btn btn-primary px-3" href="">{{i.price}}</a><br>-->
+                        <p>Price: Rs {{i.price}} </p>
+                        <h4>Stock left: {{i.stock}}</h4>
+
+            </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+    <script src="{% static 'hm/https://code.jquery.com/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'hm/https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'hm/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'hm/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'hm/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'hm/lib/tempusdominus/js/moment.min.js' %}"></script>
+    <script src="{% static 'hm/lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+    <script src="{% static 'hm/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'hm/js/main.js' %}"></script>
+
+</body>
+
+</html>
+{% endblock %}
+
